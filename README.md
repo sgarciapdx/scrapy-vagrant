@@ -3,7 +3,8 @@
 Use this to play around with scrapy without mucking around with your personal system.
 
 Requirements:
-- Install [Vagrant](https://www.vagrantup.com) 
+- Install [Vagrant](https://www.vagrantup.com)
+- If on Windows, you may need to install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) as well
 
 Usage:
 - Navigate to the directory containing this Vagrantfile
