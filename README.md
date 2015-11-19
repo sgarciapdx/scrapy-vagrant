@@ -27,6 +27,5 @@ Usage:
 - Stop the VM: `vagrant halt`
 - If you encounter some issue with the setup proocess and need to start over again: `vagrant destroy`
   - Note: this won't touch your `scrapy` directory
-- If you didn't clone your scrapy fork before setting up your VM, you'll have to install your scrapy fork in editable mode from inside the VM manually after cloning. From inside the VM:
-  - `cd /vagrant/scrapy`
-  - `pip install -e .`
+- If you didn't clone your scrapy fork before setting up your VM, you'll have to reload your VM (it's a fairly quick process compared to destroy/up). From the scrapy-vagrant directory:
+  - `vagrant reload --provision`
