@@ -24,12 +24,12 @@ Vagrant.configure(2) do |config|
     sudo apt-get install -y build-essential libssl-dev libffi-dev python-dev python3-dev libxml2-dev libxslt1-dev git
     sudo apt-get install -y python-pip python3-pip
     cd /vagrant
-    if [ ! -d scrapy ]; then
-      git clone https://github.com/PDX-Capstone-Team-C/scrapy.git
+    if [ -d scrapy ]; then
+      cd scrapy
+      pip install -e .
     else
-      echo "scrapy project directory already exists, not cloning!"
+      echo "/vagrant/scrapy project directory not found, not installing!"
+      echo "You can set up your fork later, see README.md for details."
     fi
-    cd scrapy
-    pip install -e .
   SHELL
 end

@@ -4,14 +4,15 @@ Use this to play around with scrapy without mucking around with your personal sy
 
 What this does:
 - Creates a Vagrant box with a Python dev environment for working on scrapy
-- Clones our team's scrapy fork into `/vagrant` on the VM, which is shared with your local machine as the directory containing your clone of this repo.
-- Sets up scrapy on the VM in editable mode (meaning that any changes made to the codebase should be reflected when executing scrapy)
+- Sets up your scrapy fork on the VM in editable mode (meaning that any changes made to the codebase should be reflected when executing scrapy)
 - Enables SSH agent forwarding on the VM, so you can use your SSH keys for interacting with GitHub and others from within the VM (if you have SSH agent forwarding set up on your system and change the remote repo's URL to SSH in `.git/config`)
 
 Requirements for setup:
 - Install [Vagrant](https://www.vagrantup.com)
 - Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) if not already installed
 - Install the Vagrant-Vbguest plugin: `vagrant plugin install vagrant-vbguest`
+- Clone this repo
+- Clone your scrapy fork into the directory containing your clone of this repo
 
 Usage:
 - Navigate to the directory containing this Vagrantfile
@@ -26,3 +27,6 @@ Usage:
 - Stop the VM: `vagrant halt`
 - If you encounter some issue with the setup proocess and need to start over again: `vagrant destroy`
   - Note: this won't touch your `scrapy` directory
+- If you didn't clone your scrapy fork before setting up your VM, you'll have to install your scrapy fork in editable mode from inside the VM manually after cloning. From inside the VM:
+  - `cd /vagrant/scrapy`
+  - `pip install -e .`
