@@ -19,9 +19,11 @@ Vagrant.configure(2) do |config|
     # Install the necessary packages, switch to our shared directory, check if
     # our project directory exists, and clone it if it doesn't.
     scrapy.vm.provision "shell", inline: <<-SHELL
+      sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ precise universe"
       sudo apt-get update
       sudo apt-get install -y build-essential libssl-dev libffi-dev python-dev python3-dev libxml2-dev libxslt1-dev git
       sudo apt-get install -y python-pip python3-pip
+      sudo apt-get install -y python-leveldb python-xdelta3
       cd /vagrant
       if [ -d scrapy ]; then
         cd scrapy
