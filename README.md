@@ -36,4 +36,7 @@ Usage:
 - If you encounter some issue with the setup proocess and need to start over again: `vagrant destroy <boxname>`
   - Note: this won't touch your `scrapy` or `web` directories
 - If you didn't clone your scrapy fork before setting up your VM, you'll have to reload your VM (it's a fairly quick process compared to destroy/up). From the scrapy-vagrant directory:
-  - `vagrant reload <boxname> --provision` or `vagrant up <boxname> --provision`
+  - `vagrant reload --provision <boxname>` or `vagrant up --provision <boxname>`
+
+Important:
+- When using anything that requires LevelDB, make sure LevelDB is not using any shared directories. Failing to do so will result in an IO error due to a years-old issue with Virtualbox and how its shared directories work. Instead, make sure LevelDB is using a directory local to the VM. For example, `/home/vagrant/httpcache` would work (assuming the directory exists). 
