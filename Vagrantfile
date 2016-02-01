@@ -21,9 +21,10 @@ Vagrant.configure(2) do |config|
     scrapy.vm.provision "shell", inline: <<-SHELL
       sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ precise universe"
       sudo apt-get update
-      sudo apt-get install -y build-essential libssl-dev libffi-dev python-dev python3-dev libxml2-dev libxslt1-dev git
+      sudo apt-get install -y build-essential libssl-dev libffi-dev python-dev python3-dev libxml2-dev libxslt1-dev zlib1g-dev libjpeg-dev git
       sudo apt-get install -y python-pip python3-pip
       sudo apt-get install -y python-leveldb python-xdelta3
+      pip install -U tox
       cd /vagrant
       if [ -d scrapy ]; then
         cd scrapy
